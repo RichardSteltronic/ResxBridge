@@ -23,6 +23,7 @@
 
 	<ItemGroup>
 	  <Folder Include="Resources\Branding\" />
+	  <Folder Include="Resources\Screenshots\" />
 	</ItemGroup>
 
     <ItemGroup>
