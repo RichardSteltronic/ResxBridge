@@ -4,10 +4,11 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.0-blue" alt="Version">
-  <img src="https://img.shields.io/badge/platform-Windows-blue" alt="Platform">
+  <a href="https://github.com/RichardSteltronic/ResxBridge/releases/latest"><img src="https://img.shields.io/github/v/release/RichardSteltronic/ResxBridge?label=version" alt="Latest release"></a>
+  <img src="https://img.shields.io/badge/platform-Windows%20x64-blue" alt="Platform">
   <img src="https://img.shields.io/badge/.NET-10-512BD4" alt=".NET">
-  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
+  <a href="LICENSE.txt"><img src="https://img.shields.io/github/license/RichardSteltronic/ResxBridge?color=green" alt="License"></a>
+  <a href="https://github.com/RichardSteltronic/ResxBridge/releases"><img src="https://img.shields.io/github/downloads/RichardSteltronic/ResxBridge/total?color=green" alt="Total release asset downloads"></a>
 </p>
 
 <p align="center">
@@ -175,9 +176,8 @@ ResX Bridge uses ClosedXML for XLSX workbook operations.
 
 Suggestions, bug reports, and contributions are welcome.
 
-If you encounter a problem or have an idea that would
-improve your translation workflow, please open an issue
-in the GitHub repository.
+- Use [GitHub Discussions](https://github.com/RichardSteltronic/ResxBridge/discussions) for questions, workflow discussions, and feature ideas.
+- Use [GitHub Issues](https://github.com/RichardSteltronic/ResxBridge/issues) to report bugs and track actionable improvements.
 
 ## Support Development
 
