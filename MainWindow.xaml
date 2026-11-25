@@ -1,0 +1,392 @@
+<Window x:Class="ResxBridge.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ResX Bridge"
+        Width="1180"
+        MinWidth="900"
+        Height="950"
+        MinHeight="900"
+        WindowStartupLocation="CenterScreen"
+        Icon="Resources/Branding/ResxBridge.ico">
+
+    <Grid Margin="24">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" MinHeight="355" />
+            <RowDefinition Height="*" MinHeight="220" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Application heading -->
+
+        <Grid Grid.Row="0"
+              Margin="0,0,0,20">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0"
+            Orientation="Horizontal"
+            VerticalAlignment="Center">
+
+                <Image Source="Resources/Branding/ResxBridgeIcon.png"
+       Width="56"
+       Height="56"
+       Margin="0,0,14,0"
+       Stretch="Uniform"
+       RenderOptions.BitmapScalingMode="HighQuality" />
+
+                <StackPanel VerticalAlignment="Center">
+
+                    <TextBlock Style="{StaticResource PageTitleStyle}">
+            <Run Text="ResX " Foreground="#34465D" />
+            <Run Text="Bridge" Foreground="#15803D" />
+                    </TextBlock>
+
+                    <TextBlock Text="Export. Share. Import."
+                   Style="{StaticResource SecondaryTextStyle}" />
+
+                </StackPanel>
+
+            </StackPanel>
+
+            <Button x:Name="BackupSettingsButton"
+			        Grid.Column="1"
+			        Content="Backup Settings"
+			        Style="{StaticResource SecondaryButtonStyle}"
+			        HorizontalAlignment="Right"
+			        VerticalAlignment="Center"
+			        MinWidth="150"
+			        Margin="16,0,0,0"
+			        ToolTip="Configure application and project backup locations."
+			        Click="BackupSettings_Click" />
+
+        </Grid>
+
+        <!-- Resource directory -->
+
+        <Border Grid.Row="1"
+                Style="{StaticResource PanelStyle}"
+                Margin="0,0,0,12">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Grid.ColumnSpan="3"
+                           Text="Resource directory"
+                           Style="{StaticResource SectionTitleStyle}"
+                           Margin="0,0,0,10" />
+
+                <TextBox x:Name="ResourceDirectoryTextBox"
+                         Grid.Row="1"
+                         Grid.Column="0"
+                         IsReadOnly="True"
+                         AutomationProperties.Name="Resource directory"
+                         Margin="0,0,8,0" />
+
+                <Button x:Name="BrowseButton"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Content="Browse..."
+                        Click="BrowseButton_Click"
+                        Margin="0,0,8,0" />
+
+                <Button x:Name="RefreshButton"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Content="Refresh"
+                        Style="{StaticResource SecondaryButtonStyle}"
+                        Click="RefreshButton_Click"
+                        IsEnabled="False" />
+
+                <TextBlock x:Name="ResourceSummaryTextBlock"
+                           Grid.Row="2"
+                           Grid.ColumnSpan="3"
+                           Text="Select a directory containing RESX files."
+                           Style="{StaticResource SecondaryTextStyle}"
+                           Margin="0,10,0,0" />
+
+            </Grid>
+
+        </Border>
+
+        <!-- Discovered resource files -->
+
+        <Border Grid.Row="2"
+                Style="{StaticResource PanelStyle}"
+                Margin="0,0,0,12">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Text="Resource files"
+                           Style="{StaticResource SectionTitleStyle}"
+                           Margin="0,0,0,10" />
+
+                <DataGrid x:Name="ResourceFilesDataGrid"
+                          Grid.Row="1"
+                          AutomationProperties.Name="Discovered resource files">
+
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn
+                            Header="Resource family"
+                            Binding="{Binding ResourceFamily}"
+                            Width="*" />
+
+                        <DataGridTextColumn
+                            Header="Resource file"
+                            Binding="{Binding FileName}"
+                            Width="1.5*" />
+
+                        <DataGridTextColumn
+                            Header="Culture"
+                            Binding="{Binding Culture}"
+                            Width="90" />
+
+                        <DataGridTextColumn
+                            Header="Language"
+                            Binding="{Binding Language}"
+                            Width="*" />
+
+                        <DataGridTextColumn
+                            Header="Entries"
+                            Binding="{Binding EntryCount}"
+                            Width="80" />
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+                <StackPanel Grid.Row="2"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            Margin="0,12,0,0">
+
+                    <Button x:Name="ExportButton"
+                            Content="Export XLSX"
+                            Style="{StaticResource AccentButtonStyle}"
+                            Click="ExportButton_Click"
+                            IsEnabled="False"
+                            MinWidth="150"
+                            Margin="0,0,8,0" />
+
+                    <Button x:Name="ImportButton"
+                            Content="Import from XLSX"
+                            Click="ImportButton_Click"
+                            IsEnabled="False"
+                            MinWidth="150" />
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+        <!-- Import preview -->
+
+        <Border Grid.Row="3"
+                Style="{StaticResource PanelStyle}">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Text="Import preview"
+                           Style="{StaticResource SectionTitleStyle}" />
+
+                <TextBlock x:Name="PreviewSummaryTextBlock"
+                           Grid.Row="1"
+                           Text="Import a workbook to review proposed changes."
+                           Style="{StaticResource SecondaryTextStyle}"
+                           TextWrapping="Wrap"
+                           Margin="0,6,0,12" />
+
+                <TabControl x:Name="PreviewTabControl"
+                            Grid.Row="2">
+
+                    <TabItem x:Name="ChangesTab"
+                             Header="Proposed changes (0)">
+
+                        <DataGrid x:Name="ChangesDataGrid"
+                                  AutomationProperties.Name="Proposed changes">
+
+                            <DataGrid.Columns>
+
+                                <DataGridTextColumn
+                                    Header="Resource file"
+                                    Binding="{Binding FileName}"
+                                    Width="150" />
+
+                                <DataGridTextColumn
+                                    Header="Key"
+                                    Binding="{Binding Key}"
+                                    Width="150" />
+
+                                <DataGridTextColumn
+                                    Header="Language"
+                                    Binding="{Binding Language}"
+                                    Width="110" />
+
+                                <DataGridTextColumn
+                                    Header="Before"
+                                    Binding="{Binding Before}"
+                                    Width="*">
+
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="TextWrapping"
+                                                    Value="Wrap" />
+                                            <Setter Property="Padding"
+                                                    Value="6" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn
+                                    Header="After"
+                                    Binding="{Binding After}"
+                                    Width="*">
+
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="TextWrapping"
+                                                    Value="Wrap" />
+                                            <Setter Property="Padding"
+                                                    Value="6" />
+                                            <Setter Property="Foreground"
+                                                    Value="{StaticResource AccentBrush}" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+
+                                </DataGridTextColumn>
+
+                            </DataGrid.Columns>
+
+                        </DataGrid>
+
+                    </TabItem>
+
+                    <TabItem x:Name="IssuesTab"
+                             Header="Validation issues (0)">
+
+                        <DataGrid x:Name="IssuesDataGrid"
+                                  AutomationProperties.Name="Validation issues">
+
+                            <DataGrid.Columns>
+
+                                <DataGridTextColumn
+                                    Header="Severity"
+                                    Binding="{Binding Severity}"
+                                    Width="90" />
+
+                                <DataGridTextColumn
+                                    Header="Location"
+                                    Binding="{Binding Location}"
+                                    Width="150" />
+
+                                <DataGridTextColumn
+                                    Header="Message"
+                                    Binding="{Binding Message}"
+                                    Width="*">
+
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="TextWrapping"
+                                                    Value="Wrap" />
+                                            <Setter Property="Padding"
+                                                    Value="6" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+
+                                </DataGridTextColumn>
+
+                            </DataGrid.Columns>
+
+                        </DataGrid>
+
+                    </TabItem>
+
+                </TabControl>
+
+                <StackPanel Grid.Row="3"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            Margin="0,12,0,0">
+
+                    <Button x:Name="ClearPreviewButton"
+                            Content="Clear preview"
+                            Style="{StaticResource SecondaryButtonStyle}"
+                            Click="ClearPreviewButton_Click"
+                            IsEnabled="False"
+                            MinWidth="130"
+                            Margin="0,0,8,0" />
+
+                    <Button x:Name="ApplyButton"
+                            Content="Apply changes"
+                            Style="{StaticResource AccentButtonStyle}"
+                            Click="ApplyButton_Click"
+                            IsEnabled="False"
+                            MinWidth="150" />
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+        <!-- Application status -->
+
+        <Grid Grid.Row="4"
+              Margin="0,12,0,0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="StatusTextBlock"
+                       Grid.Column="0"
+                       Text="Ready"
+                       TextTrimming="CharacterEllipsis"
+                       Style="{StaticResource SecondaryTextStyle}" />
+
+            <TextBlock x:Name="VersionTextBlock"
+                       Grid.Column="1"
+                       Style="{StaticResource SecondaryTextStyle}"
+                       Margin="16,0,0,0" />
+
+        </Grid>
+
+    </Grid>
+
+</Window>

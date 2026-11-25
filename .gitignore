@@ -1,0 +1,43 @@
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build output
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa]rtifacts/
+[Pp]ublish/
+
+# Test results
+[Tt]est[Rr]esults/
+*.trx
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+
+# Local settings and backups
+Settings.json
+ResxBridgeBackups/
+Backup_*/
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+
+# Windows-generated files
+Thumbs.db
+Desktop.ini
+
+# Local translation workbooks
+*.xlsx
