@@ -1,0 +1,10 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: Questions and General Discussion
+    url: https://github.com/RichardSteltronic/ResxBridge/discussions
+    about: Ask questions, share localization workflows, or discuss ResX Bridge with the community.
+
+  - name: Documentation
+    url: https://github.com/RichardSteltronic/ResxBridge#readme
+    about: View application documentation, features, and installation instructions.

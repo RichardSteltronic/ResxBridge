@@ -1,0 +1,65 @@
+name: Feature Request
+description: Suggest an improvement or new feature for ResX Bridge.
+title: "[Feature]: "
+labels: ["enhancement"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve ResX Bridge.
+
+        The goal of ResX Bridge is to simplify translation collaboration while remaining lightweight, reliable, and easy to use.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or Limitation
+      description: What problem or limitation in your current workflow would you like to address?
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Improvement
+      description: Describe the feature or improvement you would like to see.
+    validations:
+      required: true
+
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Practical Use Case
+      description: Explain how this improvement would benefit your development or translation workflow.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Describe any existing workarounds or alternative solutions you have considered.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Information
+      description: |
+        Include any relevant examples, screenshots, or other information.
+
+        Remove confidential or proprietary information before submitting.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have searched existing issues for similar feature requests.
+          required: true
+        - label: I have removed sensitive information from any submitted content or attachments.
+          required: true

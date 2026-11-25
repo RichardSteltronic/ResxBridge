@@ -1,0 +1,114 @@
+name: Bug Report
+description: Report a problem encountered while using ResX Bridge.
+title: "[Bug]: "
+labels: ["bug"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report a bug.
+        Please provide enough information to help reproduce and resolve the problem.
+
+  - type: input
+    id: version
+    attributes:
+      label: ResX Bridge Version
+      description: Which version of ResX Bridge are you using?
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: windows
+    attributes:
+      label: Windows Version
+      options:
+        - Windows 11
+        - Windows 10
+        - Windows Server
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: operation
+    attributes:
+      label: Affected Operation
+      description: What were you doing when the problem occurred?
+      options:
+        - Application Startup
+        - Resource Discovery
+        - Workbook Export
+        - Workbook Import
+        - Import Validation
+        - Apply Changes
+        - Backup and Restore
+        - Application Settings
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Problem Description
+      description: Describe the problem you encountered.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      placeholder: |
+        1. Open ResX Bridge.
+        2. Select a resource directory.
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What happened instead? Include any error messages.
+    validations:
+      required: true
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Screenshots or Sample Files
+      description: |
+        Attach screenshots, sample RESX files, or XLSX workbooks if they help demonstrate the problem.
+
+        Remove confidential information, credentials, proprietary translations, and sensitive resource values before uploading.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Information
+      description: Include any other information that may help investigate the problem.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have searched existing issues for this problem.
+          required: true
+        - label: I have removed sensitive information from any submitted content or attachments.
+          required: true
