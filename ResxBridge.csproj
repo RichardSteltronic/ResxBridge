@@ -26,6 +26,10 @@
 	  <Folder Include="Resources\Screenshots\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Include=".github\FUNDING.yml" />
+	</ItemGroup>
+
     <ItemGroup>
         <Resource Include="Resources\Branding\ResxBridge.ico" />
         <Resource Include="Resources\Branding\ResxBridgeIcon.png" />

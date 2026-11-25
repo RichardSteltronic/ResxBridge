@@ -179,6 +179,16 @@ If you encounter a problem or have an idea that would
 improve your translation workflow, please open an issue
 in the GitHub repository.
 
+## Support Development
+
+ResX Bridge is completely free and open source.
+
+If you find this utility helpful and would like to support its continued development or the creation of future developer tools, consider buying me a coffee.
+
+[![Buy Me a Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://buymeacoffee.com/richardedwardsdev)
+
+Your support is entirely optional and greatly appreciated.
+
 ## License
 
 ResX Bridge is released under the MIT License.
