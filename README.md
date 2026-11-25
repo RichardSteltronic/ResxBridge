@@ -10,6 +10,17 @@
   <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
 </p>
 
+<p align="center">
+  <a href="https://github.com/RichardSteltronic/ResxBridge/releases/latest">
+    <img src="https://img.shields.io/badge/Download-ResX%20Bridge-15803D?style=for-the-badge&logo=windows&logoColor=white" alt="Download ResX Bridge">
+  </a>
+</p>
+
+<p align="center">
+  Free &bull; Open Source &bull; Windows x64 &bull; No Installation Required
+</p>
+
+
 ## Overview
 
 ResX Bridge is a free, open-source Windows utility designed
@@ -110,6 +121,18 @@ ResX Bridge operates locally on your computer.
 The application does not require an internet connection,
 user account, or external translation service.
 
+## Download and Installation
+
+Download the latest version from the
+[GitHub Releases page](https://github.com/RichardSteltronic/ResxBridge/releases/latest).
+
+1. Download the Windows x64 ZIP package.
+2. Extract all files to a folder of your choice.
+3. Run `ResxBridge.exe`.
+
+The downloadable release is self-contained and does not
+require a separate .NET runtime installation.
+
 ## System Requirements
 
 - Windows
@@ -137,7 +160,7 @@ in the GitHub repository.
 
 ResX Bridge is released under the MIT License.
 
-See [LICENSE](LICENSE) for details.
+See [LICENSE](LICENSE.txt) for details.
 
 ---
 
