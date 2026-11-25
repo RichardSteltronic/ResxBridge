@@ -140,21 +140,21 @@ require a separate .NET runtime installation.
 Automatically discover resource families, languages,
 cultures, and string entries within a selected directory.
 
-![Resource Discovery](Resources/Screenshots/MainWindow.png)
+![Resource Discovery](Resources/Screenshots/Page1.png)
 
 ### Export and Share
 
 Export protected, color-coded XLSX workbooks for
 collaboration with translators.
 
-![Translation Workbook](Resources/Screenshots/TranslationWorkbook.png)
+![Translation Workbook](Resources/Screenshots/Spreadsheet.png)
 
 ### Review and Import
 
 Review proposed translation changes and validation issues
 before applying updates to your resource files.
 
-![Import Preview](Resources/Screenshots/ImportPreview.png)
+![Import Preview](Resources/Screenshots/Page2.png)
 
 ## System Requirements
 
